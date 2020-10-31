@@ -1,0 +1,13 @@
+<section class="phx-hero">
+  <h1>First todo app using Phoenix</h1>
+  <p>Let's get organised in this hizzzyyyy!</p>
+</section>
+
+<ul>
+  <%= for item <- @items do %>
+    <li>
+    <p> <%= item.title %> </p>
+    <p> <%= item.description %> </p>
+    </li>
+  <%= end %>
+</ul>
