@@ -1,26 +1,27 @@
-<section class="phx-hero">
-  <h1>First todo app using Phoenix</h1>
-  <p>Let's get organised in this hizzzyyyy!</p>
+<section class="hero">
+  <h1 class="hero-headline">First todo app using Phoenix</h1>
+  <p class="hero-desc">Let's get organised in this hizzzyyyy!</p>
 </section>
-
-<ul>
+<ul class="todo-list">
   <%= for item <- @items do %>
-  <li>
-    <p> <%= item.title %> </p>
-    <p> <%= item.description %> </p>
+  <li class="todo-list-item">
+    <p class="todo-list-item-title"><span class="strong">Title:</span> <%= item.title %></p>
+    <p class="todo-list-item-desc"><span class="strong">Description:</span> <%= item.description %></p>
   </li>
   <%= end %>
 </ul>
-
-<%= form_for @changeset, Routes.page_path(@conn, :create_item), fn f -> %>
-  <label>
-    Name: <%= text_input f, :title %>
-  </label>
-
-  <label>
-    description: <%= text_input f, :description %>
-  </label>
-
-  <%= submit "Submit" %>
-<% end %>
+<div class="form-group">
+  <%= form_for @changeset, Routes.page_path(@conn, :create_item), fn f -> %>
+    <label class="form-input">
+      <p class="form-title">Name:</p>
+      <%= text_input f, :title %>
+    </label>
+    <label class="form-input">
+      <p class="form-title">Description:</p>
+      <%= text_input f, :description %>
+    </label>
+    <div class="form-button">
+      <%= submit "Submit" %>
+    </div>
+  <% end %>
 </div>
