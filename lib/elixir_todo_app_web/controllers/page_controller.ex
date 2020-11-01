@@ -20,14 +20,11 @@ defmodule ElixirTodoAppWeb.PageController do
 
   def create_item(conn, params) do
     todo = Map.get(params, "todo")
-    IO.inspect(todo)
 
     changeset = %{
       title: Map.get(todo, "title"),
       description: Map.get(todo, "description")
     }
-
-    IO.inspect(changeset)
 
     {:ok, _todo} =
       %Schema.Todo{}
@@ -36,5 +33,21 @@ defmodule ElixirTodoAppWeb.PageController do
 
     conn
     |> redirect(to: Routes.page_path(conn, :index))
+  end
+
+  def edit_item(conn, %{"id" => id}) do
+    todo_item = Repo.get_by(Schema.Todo, id: id)
+    IO.inspect(todo_item)
+
+    changeset = %{
+      title: todo_item.title,
+      description: todo_item.description
+    }
+
+    item = Schema.Todo.changeset(todo_item, changeset)
+
+    conn
+    |> assign(:item, item)
+    |> render("edit_item.html")
   end
 end

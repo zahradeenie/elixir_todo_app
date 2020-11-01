@@ -45,6 +45,9 @@
       padding: 0.3rem;
       display: block;
     }
+    &-buttons {
+      padding: 0.3rem;
+    }
   }
 }
 
@@ -83,4 +86,12 @@ ul {
 
 .strong {
   font-weight: 400;
+}
+
+button {
+  padding: 0.3rem;
+  border-radius: 5px;
+  border: 1px solid grey;
+  font-size: 0.8rem;
+  cursor: pointer;
 }

@@ -7,8 +7,14 @@
   <li class="todo-list-item">
     <p class="todo-list-item-title"><span class="strong">Title:</span> <%= item.title %></p>
     <p class="todo-list-item-desc"><span class="strong">Description:</span> <%= item.description %></p>
+    <div class="todo-list-item-buttons">
+      <a href="<%= Routes.page_path(@conn, :edit_item, item.id) %>">
+      Edit
+      </a>
+      <button type="submit">Delete</button>
+    </div>
   </li>
-  <%= end %>
+  <% end %>
 </ul>
 <div class="form-group">
   <%= form_for @changeset, Routes.page_path(@conn, :create_item), fn f -> %>

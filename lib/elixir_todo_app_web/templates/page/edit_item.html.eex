@@ -1,0 +1,15 @@
+<div class="form-group">
+  <%= form_for @item, Routes.page_path(@conn, :edit_item), fn f -> %>
+    <label class="form-input">
+      <p class="form-title">Name:</p>
+      <%= text_input f, :title %>
+    </label>
+    <label class="form-input">
+      <p class="form-title">Description:</p>
+      <%= text_input f, :description %>
+    </label>
+    <div class="form-button">
+      <%= submit "Submit" %>
+    </div>
+  <% end %>
+</div>
