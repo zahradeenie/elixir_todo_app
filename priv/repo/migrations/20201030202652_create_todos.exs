@@ -8,6 +8,5 @@ defmodule ElixirTodoApp.Repo.Migrations.CreateTodos do
 
       timestamps()
     end
-
   end
 end
