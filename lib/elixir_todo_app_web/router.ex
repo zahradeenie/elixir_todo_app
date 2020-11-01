@@ -17,6 +17,7 @@ defmodule ElixirTodoAppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    post "/", PageController, :create_item
   end
 
   # Other scopes may use custom stacks.

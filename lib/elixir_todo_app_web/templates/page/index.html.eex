@@ -5,9 +5,22 @@
 
 <ul>
   <%= for item <- @items do %>
-    <li>
+  <li>
     <p> <%= item.title %> </p>
     <p> <%= item.description %> </p>
-    </li>
+  </li>
   <%= end %>
 </ul>
+
+<%= form_for @changeset, Routes.page_path(@conn, :create_item), fn f -> %>
+  <label>
+    Name: <%= text_input f, :title %>
+  </label>
+
+  <label>
+    description: <%= text_input f, :description %>
+  </label>
+
+  <%= submit "Submit" %>
+<% end %>
+</div>

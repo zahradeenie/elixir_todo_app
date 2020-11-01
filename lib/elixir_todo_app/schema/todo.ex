@@ -14,5 +14,6 @@ defmodule ElixirTodoApp.Schema.Todo do
     todo
     |> cast(attrs, [:title, :description])
     |> validate_required([:title, :description])
+    |> unique_constraint(:name, name: :todos_pkey)
   end
 end
