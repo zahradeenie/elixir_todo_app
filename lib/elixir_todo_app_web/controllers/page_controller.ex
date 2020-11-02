@@ -22,22 +22,18 @@ defmodule ElixirTodoAppWeb.PageController do
   def create_item(conn, params) do
     todo = Map.get(params, "todo")
 
-    changeset = %{
-      title: Map.get(todo, "title"),
-      description: Map.get(todo, "description")
-    }
-
     %Schema.Todo{}
-    |> Schema.Todo.changeset(changeset)
+    |> Schema.Todo.changeset(todo)
     |> Repo.insert()
     |> case do
       {:ok, _item} ->
         conn
+        |> put_flash(:success, "Successfully created item")
         |> redirect(to: Routes.page_path(conn, :index))
 
       {:error, changeset} ->
         conn
-        |> put_flash(:info, "Error creating item")
+        |> put_flash(:error, "Error creating item")
         |> redirect(to: Routes.page_path(conn, :index))
     end
   end
@@ -45,22 +41,18 @@ defmodule ElixirTodoAppWeb.PageController do
   def edit_item(conn, %{"todo" => todo} = params) do
     todo_item = Repo.get_by(Schema.Todo, id: params["id"])
 
-    changeset = %{
-      title: Map.get(todo, "title"),
-      description: Map.get(todo, "description")
-    }
-
     todo_item
-    |> Schema.Todo.changeset(changeset)
+    |> Schema.Todo.changeset(todo)
     |> Repo.update()
     |> case do
       {:ok, _item} ->
         conn
+        |> put_flash(:success, "Successfully edited item")
         |> redirect(to: Routes.page_path(conn, :index))
 
       {:error, changeset} ->
         conn
-        |> put_flash(:info, "Error creating item")
+        |> put_flash(:error, "Error creating item")
         |> redirect(to: Routes.page_path(conn, :index))
     end
   end

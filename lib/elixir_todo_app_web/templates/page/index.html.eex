@@ -1,5 +1,8 @@
-<%= if info = get_flash(@conn, :info) do %>
-  <div class="alert"><%= info %></div>
+<%= if error = get_flash(@conn, :error) do %>
+  <div class="alert-error"><%= error %></div>
+<% end %>
+<%= if success = get_flash(@conn, :success) do %>
+  <div class="alert-success"><%= success %></div>
 <% end %>
 <section class="hero">
   <h1 class="hero-headline">First todo app using Phoenix</h1>

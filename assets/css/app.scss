@@ -96,8 +96,14 @@ button {
   cursor: pointer;
 }
 
-.alert {
+.alert-error {
   padding: 0.5rem;
   text-align: center;
-  background-color: lighten($color: red, $amount: 20%);
+  background-color: lighten($color: red, $amount: 30%);
+}
+
+.alert-success {
+  padding: 0.5rem;
+  text-align: center;
+  background-color: lighten($color: green, $amount: 70%);
 }
