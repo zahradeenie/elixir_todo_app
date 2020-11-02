@@ -1,21 +1,10 @@
+<%= if info = get_flash(@conn, :info) do %>
+  <div class="alert"><%= info %></div>
+<% end %>
 <section class="hero">
   <h1 class="hero-headline">First todo app using Phoenix</h1>
   <p class="hero-desc">Let's get organised in this hizzzyyyy!</p>
 </section>
-<ul class="todo-list">
-  <%= for item <- @items do %>
-  <li class="todo-list-item">
-    <p class="todo-list-item-title"><span class="strong">Title:</span> <%= item.title %></p>
-    <p class="todo-list-item-desc"><span class="strong">Description:</span> <%= item.description %></p>
-    <div class="todo-list-item-buttons">
-      <a href="<%= Routes.page_path(@conn, :view_edit_item, item.id) %>">
-      Edit
-      </a>
-      <button type="submit">Delete</button>
-    </div>
-  </li>
-  <% end %>
-</ul>
 <div class="form-group">
   <%= form_for @changeset, Routes.page_path(@conn, :create_item), fn f -> %>
     <label class="form-input">
@@ -31,3 +20,18 @@
     </div>
   <% end %>
 </div>
+<ul class="todo-list">
+  <%= for item <- @items do %>
+  <li class="todo-list-item">
+    <p class="todo-list-item-title"><span class="strong">Title:</span> <%= item.title %></p>
+    <p class="todo-list-item-desc"><span class="strong">Description:</span> <%= item.description %></p>
+    <div class="todo-list-item-buttons">
+      <a href="<%= Routes.page_path(@conn, :view_edit_item, item.id) %>">
+      Edit
+      </a>
+      <button type="submit">Delete</button>
+    </div>
+  </li>
+  <% end %>
+</ul>
+
