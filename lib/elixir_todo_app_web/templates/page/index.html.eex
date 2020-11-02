@@ -29,10 +29,12 @@
     <p class="todo-list-item-title"><span class="strong">Title:</span> <%= item.title %></p>
     <p class="todo-list-item-desc"><span class="strong">Description:</span> <%= item.description %></p>
     <div class="todo-list-item-buttons">
-      <a href="<%= Routes.page_path(@conn, :view_edit_item, item.id) %>">
-      Edit
+      <a href="<%= Routes.page_path(@conn, :view_edit_item, item.id) %>" class="button">
+        Edit
       </a>
-      <button type="submit">Delete</button>
+      <a href="<%= Routes.page_path(@conn, :delete_item, item.id) %>" method="DELETE" class="button">
+        Delete
+      </a>
     </div>
   </li>
   <% end %>

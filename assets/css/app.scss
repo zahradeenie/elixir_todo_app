@@ -46,7 +46,11 @@
       display: block;
     }
     &-buttons {
-      padding: 0.3rem;
+      margin: 0.4rem;
+      > .button {
+        padding-right: 0.3rem;
+        text-decoration: none;
+      }
     }
   }
 }

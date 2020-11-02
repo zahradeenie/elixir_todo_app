@@ -50,7 +50,7 @@ defmodule ElixirTodoAppWeb.PageController do
         |> put_flash(:success, "Successfully edited item")
         |> redirect(to: Routes.page_path(conn, :index))
 
-      {:error, changeset} ->
+      {:error, _changeset} ->
         conn
         |> put_flash(:error, "Error creating item")
         |> redirect(to: Routes.page_path(conn, :index))
@@ -66,5 +66,23 @@ defmodule ElixirTodoAppWeb.PageController do
     |> assign(:item, item)
     |> assign(:todo, todo_item)
     |> render("edit_item.html")
+  end
+  
+  def delete_item(conn, %{"id" => id}) do
+    todo_item = 
+      Schema.Todo
+      |> Repo.get_by(id: id)
+      |> Repo.delete()
+      |> case do
+        {:ok, _item} ->
+          conn
+          |> put_flash(:success, "Successfully deleted item")
+          |> redirect(to: Routes.page_path(conn, :index))
+
+        {:error, changeset} ->
+          conn
+          |> put_flash(:error, "Error deleting item")
+          |> redirect(to: Routes.page_path(conn, :index))
+      end
   end
 end
