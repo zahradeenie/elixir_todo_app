@@ -4,6 +4,7 @@ defmodule ElixirTodoAppWeb.PageController do
   alias ElixirTodoApp.{Schema, Repo}
 
   import Ecto.Query
+  import Ecto.Changeset
 
   def index(conn, _params) do
     todos =
@@ -35,9 +36,27 @@ defmodule ElixirTodoAppWeb.PageController do
     |> redirect(to: Routes.page_path(conn, :index))
   end
 
+  def edit_item(conn, %{"todo" => todo} = params) do
+    todo_item = Repo.get_by(Schema.Todo, id: params["id"])
+
+    changeset = %{
+      title: Map.get(todo, "title"),
+      description: Map.get(todo, "description")
+    }
+
+    {:ok, _item} =
+      todo_item
+      |> Schema.Todo.changeset(changeset)
+      |> Repo.update()
+      |> IO.inspect
+
+    conn
+    |> redirect(to: Routes.page_path(conn, :index))
+  end
+
   def edit_item(conn, %{"id" => id}) do
     todo_item = Repo.get_by(Schema.Todo, id: id)
-    IO.inspect(todo_item)
+    # IO.inspect(todo_item)
 
     changeset = %{
       title: todo_item.title,
@@ -48,6 +67,7 @@ defmodule ElixirTodoAppWeb.PageController do
 
     conn
     |> assign(:item, item)
+    |> assign(:todo, todo_item)
     |> render("edit_item.html")
   end
 end

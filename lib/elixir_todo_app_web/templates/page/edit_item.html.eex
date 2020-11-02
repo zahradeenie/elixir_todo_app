@@ -1,5 +1,5 @@
 <div class="form-group">
-  <%= form_for @item, Routes.page_path(@conn, :edit_item), fn f -> %>
+  <%= form_for @item, Routes.page_path(@conn, :edit_item, @todo.id), [method: "post"], fn f -> %>
     <label class="form-input">
       <p class="form-title">Name:</p>
       <%= text_input f, :title %>

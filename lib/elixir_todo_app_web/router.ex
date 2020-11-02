@@ -16,8 +16,9 @@ defmodule ElixirTodoAppWeb.Router do
   scope "/", ElixirTodoAppWeb do
     pipe_through :browser
 
-    post "/edit", PageController, :edit_item
+    post "/edit/:id", PageController, :edit_item
     get "/edit/:id", PageController, :edit_item
+    # put "/edit/:id", PageController, :edit_item
     post "/", PageController, :create_item
     get "/", PageController, :index
   end
