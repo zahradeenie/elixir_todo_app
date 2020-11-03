@@ -6,7 +6,6 @@
 <% end %>
 <section class="hero">
   <h1 class="hero-headline">First todo app using Phoenix</h1>
-  <p class="hero-desc">Let's get organised in this hizzzyyyy!</p>
 </section>
 <div class="form-group">
   <%= form_for @changeset, Routes.page_path(@conn, :create_item), fn f -> %>
