@@ -19,6 +19,7 @@ defmodule ElixirTodoAppWeb.Router do
     post "/edit/:id", PageController, :edit_item
     get "/edit/:id", PageController, :view_edit_item
     get "/delete/:id", PageController, :delete_item
+    get "/:id", PageController, :complete_item
     post "/", PageController, :create_item
     get "/", PageController, :index
   end

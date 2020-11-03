@@ -13,7 +13,7 @@ defmodule ElixirTodoApp.Schema.Todo do
   @doc false
   def changeset(todo, attrs) do
     todo
-    |> cast(attrs, [:title, :description])
+    |> cast(attrs, [:title, :description, :complete])
     |> validate_required([:title, :description])
     |> unique_constraint(:name, name: :todos_pkey)
   end

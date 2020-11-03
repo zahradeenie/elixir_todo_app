@@ -85,4 +85,22 @@ defmodule ElixirTodoAppWeb.PageController do
           |> redirect(to: Routes.page_path(conn, :index))
       end
   end
+
+  def complete_item(conn, %{"id" => id} = params) do
+    todo_item =
+      Schema.Todo
+      |> Repo.get_by(id: id)
+      |> Schema.Todo.changeset(%{"complete" => true})
+      |> Repo.update()
+      |> case do
+        {:ok, _item} ->
+          conn
+          |> redirect(to: Routes.page_path(conn, :index))
+
+        {:error, changeset} ->
+          conn
+          |> put_flash(:error, "Error completing item")
+          |> redirect(to: Routes.page_path(conn, :index))
+      end
+  end
 end
