@@ -11,7 +11,7 @@
 <div class="form-group">
   <%= form_for @changeset, Routes.page_path(@conn, :create_item), fn f -> %>
     <label class="form-input">
-      <p class="form-title">Name:</p>
+      <p class="form-title">Title:</p>
       <%= text_input f, :title %>
     </label>
     <label class="form-input">
@@ -29,10 +29,10 @@
     <p class="todo-list-item-title"><span class="strong">Title:</span> <%= item.title %></p>
     <p class="todo-list-item-desc"><span class="strong">Description:</span> <%= item.description %></p>
     <div class="todo-list-item-buttons">
-      <a href="<%= Routes.page_path(@conn, :view_edit_item, item.id) %>" class="button">
+      <a href="<%= Routes.page_path(@conn, :view_edit_item, item.id) %>" class="button-info">
         Edit
       </a>
-      <a href="<%= Routes.page_path(@conn, :delete_item, item.id) %>" method="DELETE" class="button">
+      <a href="<%= Routes.page_path(@conn, :delete_item, item.id) %>" method="DELETE" class="button-danger">
         Delete
       </a>
     </div>
