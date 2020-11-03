@@ -28,7 +28,7 @@ At the moment I'm just returning a generic error message when the changeset retu
 
 **Styling**
 
-The purpose of this todo list was to build my confidence in creating a full stack application with the Phoenix framework - focusing on transforming data, understanding changesets, how to display data in the templates, etc. The styling is an afterthought in this. I know it's very ugly so it's listed as an low priority improvement to make.
+The purpose of this todo list was to build my confidence in creating a full stack application with the Phoenix framework - focusing on transforming data, understanding changesets, how to display data in the templates, etc. The styling is an afterthought in this. I know it's very ugly so it's listed as a low priority improvement to make.
 
 ## To start your Phoenix server:
 
