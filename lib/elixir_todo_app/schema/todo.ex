@@ -5,6 +5,7 @@ defmodule ElixirTodoApp.Schema.Todo do
   schema "todos" do
     field :description, :string
     field :title, :string
+    field :complete, :boolean
 
     timestamps()
   end
