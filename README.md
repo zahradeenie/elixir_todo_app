@@ -32,8 +32,10 @@ The purpose of this todo list was to build my confidence in creating a full stac
 
 ## To start your Phoenix server:
 
+  * Run `$ git clone git@github.com:zahradeenie/elixir_todo_app.git`
+  * Run `$ cd elixir_todo_app`
   * Install dependencies with `mix deps.get`
-  * Build the docker container with `docker-compose up -d`
+  * Build the docker database container with `docker-compose up -d`
   * Create and migrate your database with `mix ecto.setup`
   * Install Node.js dependencies with `npm install` inside the `assets` directory
   * Start Phoenix endpoint with `iex -S mix phx.server`
