@@ -1,6 +1,6 @@
 # ElixirTodoApp
 
-This is my first full stack application using the Phoenix Framework. No tutorials, no YouTube follow alongs. Just me figuring out routes, functions, pattern matching, forms, error handling and how to read and debug the compiler's error messages (this is a big one for me).
+This is my first full stack application using the Phoenix Framework. No tutorials, no YouTube follow alongs. Just me figuring out routes, functions, pattern matching, forms, error handling and how to read and debug the compiler's error messages (this is a big one for me). The application is deployed on Heroku: https://elixir-todo-list.herokuapp.com/
 
 There are 2 templates: the homepage and a page to edit a todo item
 
