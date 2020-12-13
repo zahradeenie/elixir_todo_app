@@ -4,21 +4,8 @@ This is my first full stack application using the Phoenix Framework. No tutorial
 
 There are 2 templates: the homepage and a page to edit a todo item
 
-Homepage after creating a todo item:
-
 ![Elixir todo list image 1](https://i.imgur.com/aXYnL4z.png)
 
-Edit page to modify a todo item:
-
-![Elixir todo list image 2](https://i.imgur.com/xvZfalw.png)
-
-Homepage after successfully editing a todo item:
-
-![Elixir todo list image 3](https://i.imgur.com/BOTwh1d.png)
-
-Homepage after completing a todo item:
-
-![Elixir todo list image 4](https://i.imgur.com/gAThVM1.png)
 
 ## Things to improve
 
